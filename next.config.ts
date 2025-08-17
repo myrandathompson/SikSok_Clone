@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  webpack: (config, { isServer }) => {
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+    config.module.rules.push({ test: /\.node$/, use: 'raw-loader' })
 
-export default nextConfig;
+    if (!isServer) config.externals.push('canvas');
+    return config;
+
+  }
+}
+
+export default nextConfig
