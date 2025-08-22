@@ -8,6 +8,7 @@ import { BiSolidCloudUpload } from "react-icons/bi";
 import UploadLayout from "../layouts/UploadLayout"
 import { BiLoaderCircle } from "react-icons/bi";
 import { AiOutlineCheckCircle } from "react-icons/ai";
+import { PiKnifeLight } from "react-icons/pi";
 
 
 
@@ -32,9 +33,19 @@ export default function Upload() {
 
     }
 
+    const discard = () => {
+        setFileDisplay('');
+        setFile(null);
+        setCaption('');
+    }
+
     const clearVideo = () => {
         setFileDisplay('');
         setFile(null);
+    }
+
+    const createNewPost = () => {
+        console.log('createNewPost')
     }
 
 
@@ -130,7 +141,7 @@ export default function Upload() {
                                     src="/images/logo.png"
                                 />
                                 <video
-                                    autoplay
+                                    autoPlay
                                     loop
                                     muted
                                     className="absolute rounded-xl object-cover z-10 p-[13px w-full h-full"
@@ -149,6 +160,68 @@ export default function Upload() {
                                 </div>
                         </div>
                     )}
+
+                    <div className="mt-4 mb-6">
+                        <div className="flex bg-[#F8F8F8] py-4v px-6">
+                            <div>
+                                <PiKnifeLight className="mr-4" size="20"/>
+                            </div>
+                            <div>
+                                <div className="text-semibold text-[15px] mb-1.5">Divide videos and edit</div>
+                                <div className="text-semibold text-[13px] text-gray-400">
+                                    You can quickly divide your video into multiple parts and edit them.
+                                </div>
+                            </div>
+                            <div className="flex justify-end max-w-[130px] w-full h-full text-center my-auto" >
+                                <button className="px-8 py-1.5 text-white text-[15px] bg-[#F02C56] rounded-sm">
+                                    Edit
+                                </button>
+                            </div>
+                        </div>  
+
+                        <div className="mt-5">
+                            <div className="flex items-center justify-between">
+                                <div className="mb-1 text-[15px]">Caption</div>
+                                <div className="text-gray-400 text-[12px]">{caption.length}/150</div>
+                            </div>
+                            <input 
+                                maxLength={150}
+                                type="text"
+                                className="
+                                    w-full
+                                    border
+                                    p-2.5
+                                    rounded-md
+                                    focus:outline-none
+                                    "
+                                    value={caption}
+                                    onChange={event => setCaption(event.target.value)}
+                                />
+                            </div>  
+                        
+                            <div className="flex gap-3">
+                                <button 
+                                    disabled={isUploading}
+                                    onClick={() => discard()}
+                                    className="px-10 py-2.5 mt-8 border text-[16px] hover:bg-gray-100 rounded-sm"
+                                >
+                                    Discard
+                                </button>
+                                <button 
+                                    disabled={isUploading}
+                                    onClick={() => createNewPost()}
+                                    className="px-10 py-2.5 mt-8 border text-[16px] text-white bg-[#F02C56] rounded-sm"
+                                >
+                                    {isUploading ? <BiLoaderCircle className="animate-spin" color="ffffff" size={25} /> : 'Post'}
+                                </button>
+                                </div> 
+
+                                {error ? (
+                                    <div className="text-red-600 mt-4">
+                                        {error.message}
+                                    </div>
+                                ) : null}                   
+                    </div>
                 </div>
             </UploadLayout>
         </>
