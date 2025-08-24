@@ -41,6 +41,10 @@ export interface UploadError {
 }
 
 
+export interface ProfilePageTypes {
+    params: { id: string };
+}
+
 
 
 //////////////////////////////////////////
