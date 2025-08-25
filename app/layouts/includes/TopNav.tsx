@@ -25,7 +25,7 @@ export default function TopNav() {
             <div className={`flex items-center justify-between gap-6 w-full px-4 mx-auto ${pathname === '/' ? 'max-w-[1150px]' : ''}`}>
 
                 <Link href='/'>
-                   <img className='min-w-[70px] w-[70px]' src="/images/logo.png"/>
+                   <img className="min-w-[70px] w-[70px]" src="/images/logo.png"/>
                 </Link>
 
                 <div className="relative hidden md:flex items-center justify-end bg-[#F1F1F2] p-1 rounded-full max-w-[430px] w-full">
@@ -36,7 +36,7 @@ export default function TopNav() {
                         placeholder="Search accounts"
                         />
 
-                        {/* <div className="absolute bg-white max-w-[910px] h-auto w-full z-20 left-0 top-12 border p-1">
+                        <div className="absolute bg-white max-w-[910px] h-auto w-full z-20 left-0 top-12 border p-1">
                             <div className="p-1">
                                 <Link
                                     href={`/profile/1`}
@@ -48,7 +48,7 @@ export default function TopNav() {
                                         </div>
                                     </Link>
                             </div>
-                        </div> */}
+                        </div>
 
                         <div className="px-3 py-1 flex items-center border-l border-l-gray-300">
                             <BiSearch color="#59e3f5" size="22" />

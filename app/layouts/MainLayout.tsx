@@ -10,7 +10,6 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     return (
         <>
             <TopNav />
-        
             <div className={`flex justify-between mx-auto w-full lg:px2.5 px-0 ${pathname == '/' ? 'max-w-[1140px]' : ''}`}>
                 <SideNavMain />
                 {children}
