@@ -81,6 +81,7 @@ export default function Profile({ params }: ProfilePageTypes) {
                         <li className="w-60 text-gray-500 text-center py-2 text-[17px] font-semibold">Likes</li>
                     </ul>
 
+
                     <ClientOnly>
                         <div className="mt-4 grid 2xl:grid-cols-6 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-3"> 
                         </div>
